@@ -13,17 +13,11 @@ public class DeckofCards {
 	/*
 	 * Constructor to construct Deck of cards
 	 */
-	public DeckofCards() {
+	public void setUp() {
 		for (int suits = 0; suits < SUIT.length; suits++)
 			for (int rank = 0; rank < RANK.size(); rank++) {
 				cards.add(new Cards(SUIT[suits], RANK.get(rank)));
 
 			}
 	}
-
-	public static void main(String args[]) {
-		DeckofCards deck = new DeckofCards();
-
-	}
-
 }
