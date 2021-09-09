@@ -1,40 +1,41 @@
 package deckofcards;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /*
  * this class has arrays suit,rank and deck
  * size is the size of deck
- * suit is initialized with  ( "Clubs", "Diamonds", "Hearts", "Spades" )
- * rank is initialized with  ("2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" )
+ * arrays suit and rank are initialized
  * it has a method to initialize the deck of cards and a method to print the deck
  */
 public class Cards {
 
-	String[] suit = { "Clubs", "Diamonds", "Hearts", "Spades" };
-	String[] rank = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
-	public int size = rank.length * suit.length;
-	String[] deck = new String[size];
-	int count = 0;
+	private String suit;
+	private String rank;
 
-	/*
-	 * method to initialize the array decks with content of rank and suit count will
-	 * increment after every initialization
+	/**
+	 * Constructor of class Cards with parameters rank and suit this creates card
+	 * with suit and rank
 	 */
-	public void initialize() {
-		for (int k = 0; k < rank.length; k++) {
-			for (int j = 0; j < suit.length; j++) {
-				deck[count] = rank[k] + " of " + suit[j];
-				count++;
-			}
-		}
+	public Cards(String suit, String rank) {
+		// TODO Auto-generated constructor stub
+		this.suit = suit;
+		this.rank = rank;
 	}
 
 	/*
-	 * this method will display the deck
+	 * getter method to get cards the rank
 	 */
-	public void showCard() {
-		for (int i = 0; i < size; i++) {
-			System.out.println(deck[i]);
-		}
+	public String getRank() {
+		return this.rank;
+	}
+
+	/*
+	 * getter method to get cards the suit
+	 */
+	public String getSuit() {
+		return this.suit;
 	}
 
 }
