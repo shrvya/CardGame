@@ -9,7 +9,7 @@ public class DeckofCards {
 	String[] SUIT = { "Clubs", "Diamonds", "Hearts", "Spades" };
 	ArrayList<String> RANK = new ArrayList<String>(
 			Arrays.asList("2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"));
-	ArrayList<Cards> cards = new ArrayList<Cards>(52);
+	static ArrayList<Cards> cards = new ArrayList<Cards>(52);
 
 	/*
 	 * Constructor to construct Deck of cards
@@ -27,5 +27,12 @@ public class DeckofCards {
 	 */
 	public void shuffleCards() {
 		Collections.shuffle(cards);
+	}
+
+	/*
+	 * method to get cards
+	 */
+	public static ArrayList<Cards> getCards() {
+		return cards;
 	}
 }
