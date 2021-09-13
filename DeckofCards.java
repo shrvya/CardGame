@@ -2,6 +2,7 @@ package deckofcards;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class DeckofCards {
 
@@ -19,5 +20,12 @@ public class DeckofCards {
 				cards.add(new Cards(SUIT[suits], RANK.get(rank)));
 
 			}
+	}
+
+	/*
+	 * method to shuffle the cards
+	 */
+	public void shuffleCards() {
+		Collections.shuffle(cards);
 	}
 }
