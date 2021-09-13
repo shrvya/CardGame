@@ -38,4 +38,11 @@ public class DeckofCards {
 	public ArrayList<Cards> getCards() {
 		return cards;
 	}
+	
+	 public Cards compare(Cards rank1,Cards rank2) {
+	        if(RANK.indexOf(rank1.getRank())<RANK.indexOf(rank2.getRank()))
+	            return rank1;   
+	        else
+	            return rank2;
+	       }
 }

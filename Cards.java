@@ -1,8 +1,5 @@
 package deckofcards;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /*
  * this class has arrays suit,rank and deck
  * size is the size of deck

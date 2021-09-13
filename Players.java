@@ -114,6 +114,50 @@ public class Players {
 			System.out.println("Hearts:" + hearts);
 			System.out.println("Spades:" + spade);
 		}
+		System.out.println("------------------------------");
+	}
+
+	/*
+	 * method to sort cards in increasing of rank compare method of Deckofcards is
+	 * used
+	 */
+	public void sort() {
+		// to get each players card
+		for (CardsinHand player : players) {
+			// hand of the player
+			List<Cards> play = player.getHand();
+			// to sort the cards
+			for (int i = 0; i < play.size(); i++) {
+				for (int j = 0; j < play.size() - i - 1; j++) {
+					// get the card
+					Cards rank1 = play.get(j);
+					Cards rank2 = play.get(j + 1);
+					// to compare which card has highest rank
+					if (deck.compare(rank1, rank2) == rank2) {
+						// replace the cards
+						play.set(j, rank2);
+						play.set(j + 1, rank1);
+					}
+				}
+			}
+		}
+	}
+
+	/*
+	 * method to print every card of player
+	 */
+	public void print() {
+		// to get each player
+		for (CardsinHand player : players) {
+			System.out.println("------------------------------");
+			System.out.println("player:" + (players.indexOf(player) + 1));
+			// returns set of cards in players hand
+			List<Cards> set = player.getHand();
+			// to print each card
+			for (Cards index : set)
+				System.out.println(index.getRank() + " of " + index.getSuit());
+
+		}
 	}
 
 }

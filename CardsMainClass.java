@@ -17,6 +17,8 @@ public class CardsMainClass {
 		noplayers.orderPlayers();
 		noplayers.cardDistribution();
 		noplayers.verify();
+		noplayers.sort();
+		noplayers.print();
 	}
 
 }
