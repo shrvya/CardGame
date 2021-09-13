@@ -19,7 +19,7 @@ class CardsinHand {
 	/*
 	 * gets the value in hand
 	 */
-	public ArrayList<Cards> getHand() {
+	public List<Cards> getHand() {
 		return this.hand;
 	}
 
@@ -37,6 +37,7 @@ class CardsinHand {
 public class Players {
 	ArrayList<Integer> sequence;
 	ArrayList<CardsinHand> players;
+	DeckofCards deck;
 	int noofplayers;
 
 	/*
@@ -45,8 +46,8 @@ public class Players {
 	public Players(int noofplayers) {
 		// TODO Auto-generated constructor stub
 		this.noofplayers = noofplayers;
-		DeckofCards deck = new DeckofCards();
-		ArrayList<CardsinHand> players = new ArrayList<CardsinHand>(noofplayers);
+		deck = new DeckofCards();
+		players = new ArrayList<CardsinHand>(noofplayers);
 		for (int i = 0; i < noofplayers; i++)
 			players.add(i, new CardsinHand());
 
@@ -55,8 +56,8 @@ public class Players {
 	/*
 	 * method to sequence the order in which player plays sequence is an arraylist
 	 */
-	public void orderPlayers(int noofplayers) {
-		ArrayList<Integer> sequence = new ArrayList<Integer>();
+	public void orderPlayers() {
+		sequence = new ArrayList<Integer>(noofplayers);
 		for (int order = 0; order < noofplayers; order++)
 			sequence.add(order);
 		Collections.shuffle(sequence);
@@ -65,10 +66,11 @@ public class Players {
 	/*
 	 * method distributes cards to players tempCards is an arraylist to hold the
 	 * cards for a players random cards are assigned and later that card is removed
-	 * so that there is no repetion of cards
+	 * so that there is no repetition of cards
 	 */
 	public void cardDistribution() {
-		ArrayList<Cards> tempCards = DeckofCards.getCards();
+		deck.shuffleCards();
+		ArrayList<Cards> tempCards = deck.getCards();
 		Random random = new Random();
 		for (int cardcount = 0; cardcount < 9; cardcount++) {
 			for (int playernum = 0; playernum < noofplayers; playernum++) {
@@ -77,6 +79,40 @@ public class Players {
 				playerHand.setHand(tempCards.get(x));
 				tempCards.remove(x);
 			}
+		}
+	}
+	/*
+	 * this method is used to how many cards of different types the player has got
+	 * cards in players hand are considered variables spade,hearts,diamond,clubs are
+	 * used
+	 */
+
+	public void verify() {
+		for (CardsinHand player : players) {
+			List<Cards> verifylist = player.getHand();
+			int spade = 0, hearts = 0, diamond = 0, clubs = 0;
+			for (Cards playercard : verifylist) {
+				String type = playercard.getSuit();
+				switch (type) {
+				case "Spades":
+					spade++;
+					break;
+				case "Diamonds":
+					diamond++;
+					break;
+				case "Hearts":
+					hearts++;
+					break;
+				case "Clubs":
+					clubs++;
+					break;
+				}
+			}
+			System.out.println("Player " + (players.indexOf(player) + 1) + " has :");
+			System.out.println("Clubs:" + clubs);
+			System.out.println("Diamonds:" + diamond);
+			System.out.println("Hearts:" + hearts);
+			System.out.println("Spades:" + spade);
 		}
 	}
 

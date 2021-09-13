@@ -14,7 +14,9 @@ public class CardsMainClass {
 			players = sc.nextInt();
 		}
 		Players noplayers = new Players(players);
-
+		noplayers.orderPlayers();
+		noplayers.cardDistribution();
+		noplayers.verify();
 	}
 
 }
